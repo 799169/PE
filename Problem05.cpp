@@ -103,7 +103,7 @@ namespace PrimeUtils {
 };
 
 
-struct Problem4 {
+struct Problem5 {
 
 	auto solve() {
 		const int N = 20;
