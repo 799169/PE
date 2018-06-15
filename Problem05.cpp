@@ -65,7 +65,7 @@ namespace PrimeUtils {
 		while (primes[primesCount - 1] > MAXN) {
 			--primesCount;
 		}
-    }
+	}
 
 	int powers[MAXP];
 	int primeFactors[MAXP];
