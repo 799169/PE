@@ -30,6 +30,7 @@ struct Problem1 {
 } solver;
 
 int main() {
+	freopen("output.txt", "w+", stdout);
 	auto start = high_resolution_clock::now();
 	auto ans = solver.solve();
 	auto end = high_resolution_clock::now();
