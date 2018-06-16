@@ -19,7 +19,7 @@ using namespace std;
 using namespace chrono;
 
 
-struct Problem20 {
+struct Problem21 {
 
 	auto solve() {
 		const int N = 10000;
