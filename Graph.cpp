@@ -31,7 +31,7 @@ struct Graph {
 	static const int N = 10;
 	vector <int> adj[N];
 	bool visited[N];
-	int parent[N];
+	int ancestor[N];
 
 	Graph() {
 
@@ -52,7 +52,7 @@ struct Graph {
 		}
 		for (int k = 0; k < N; ++k) {
 			if (!visited[k]) {
-				parent[k] = k;
+				ancestor[k] = k;
 				dfs(k);
 			}
 		}
@@ -62,7 +62,7 @@ struct Graph {
 		visited[i] = true;
 		for (auto e : adj[i]) {
 			if (!visited[e]) {
-				parent[e] = i;
+				ancestor[e] = i;
 				dfs(e);
 			}
 		}
@@ -77,10 +77,10 @@ struct Graph {
 	}
 
 	void printPath(int i, int j) {
-		parent[i] = i;
-		while (parent[j] != i) {
+		ancestor[i] = i;
+		while (ancestor[j] != i) {
 			cout << j << " <- ";
-			j = parent[j];
+			j = ancestor[j];
 		}
 	}
 
@@ -96,7 +96,19 @@ struct Graph {
 		}
 	}
 
+	void bfs() {
+		for (int i = 0; i < N; ++i) {
+			visited[i] = false;
+			ancestor[i] = i;
+		}
+		for (int i = 0; i < N; ++i) {
+			bfs(i);
+		}
+	}
 
+	void bfs(int i) {
+
+	}
 
 } solver;
 
@@ -109,8 +121,3 @@ int main() {
 	Graph g;
 	return 0;
 }
-
-/***********************
-    Answer:     748317
- Time taken:   0.05900s
- ************************/
