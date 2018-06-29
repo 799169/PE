@@ -50,7 +50,7 @@ namespace IntegerUtils {
 }
 
 
-struct Problem39 {
+struct Problem40 {
 
 	static const int MAXN = 1e6;
 
