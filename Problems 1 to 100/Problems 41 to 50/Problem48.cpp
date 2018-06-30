@@ -113,7 +113,7 @@ struct BigInteger {
 };
 
 
-struct Problem47 {
+struct Problem48 {
 
 	auto solve() {
 		IntL M = 1e10, ans;
@@ -138,14 +138,4 @@ int main() {
 	auto start = high_resolution_clock::now();
 	auto ans = solver.solve();
 	auto end = high_resolution_clock::now();
-	duration <double> diff = end - start;
-	cout << setw(12) << " Answer: " << setw(10) << ans;
-	cout << "\n Time taken: " << setw(9) << fixed;
-	cout << setprecision(5) << diff.count() << "s\n\n";
-	return 0;
-}
-
-/************************
-    Answer: 9110846700
- Time taken:   0.05900s
-************************/
+	durat
