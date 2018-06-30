@@ -27,7 +27,7 @@ typedef vector <int> IntV;
 typedef vector <bool> BoolV;
 
 
-struct Problem44 {
+struct Problem45 {
 
 	static const int MAXN = 30000;
 	IntL x;
