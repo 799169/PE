@@ -183,6 +183,37 @@ namespace DebugUtils  {
 		prn();
 	}
 
+	template <class T, int M, int N>
+	void pr(T a[M][N], int M, int N, int m, int n) {
+		for (int i = 0; i < m; ++i) {
+			if (i != 0) {
+				pr('\n');
+			}
+			for (int j = 0; j < n; ++j) {
+				if (j != 0) {
+					pr(' ');
+				}
+				pr(a[i][j]);
+			}
+		}
+	}
+
+	template <class T, int M, int N>
+	void prn(T a[M][N], int M, int N, int m, int n) {
+		for (int i = 0; i < m; ++i) {
+			if (i != 0) {
+				pr('\n');
+			}
+			for (int j = 0; j < n; ++j) {
+				if (j != 0) {
+					pr(' ');
+				}
+				pr(a[i][j]);
+			}
+		}
+		prn();
+	}
+
 };
 
 using namespace DebugUtils;
