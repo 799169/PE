@@ -20,167 +20,167 @@ void trx(iis it, T a, U... u) {
 namespace DebugUtils  {
 
 	template <class T>
-	void print(const T t) {
+	void pr(const T t) {
 		cout << t;
 	}
 
 	template <class T, class... U>
-	void print(const T t, const U... u) {
-		print(t);
-		print(' ');
-		print(u...);
+	void pr(const T t, const U... u) {
+		pr(t);
+		pr(' ');
+		pr(u...);
 	}
 
-	void println() {
+	void prn() {
 		cout << '\n';
 	}
 
 	template <class T>
-	void println(const T t) {
-		print(t);
-		print('\n');
+	void prn(const T t) {
+		pr(t);
+		pr('\n');
 	}
 
 	template <class T, class... U>
-	void println(const T t, const U... u) {
-		print(t);
-		print(' ');
-		println(u...);
+	void prn(const T t, const U... u) {
+		pr(t);
+		pr(' ');
+		prn(u...);
 	}
 
 	template <class T, class U>
-	void print(const pair <T, U> p) {
-		print('{');
-		print(p.first);
-		print(",");
-		print(p.second);
-		print('}');
+	void pr(const pair <T, U> p) {
+		pr('{');
+		pr(p.first);
+		pr(",");
+		pr(p.second);
+		pr('}');
 	}
 
 	template <class T, class U>
-	void println(const pair <T, U> p) {
-		print(p);
-		println();
+	void prn(const pair <T, U> p) {
+		pr(p);
+		prn();
 	}
 
 	template <class T>
-	void print(vector <T> v, int n) {
+	void pr(vector <T> v, int n) {
 		for (int i = 0; i < n; ++i) {
 			if (i != 0) {
-				print(' ');
+				pr(' ');
 			}
-			print(v[i]);
+			pr(v[i]);
 		}
 	}
 
 	template <class T>
-	void print(vector <T> v) {
-		print(v, v.size());
+	void pr(vector <T> v) {
+		pr(v, v.size());
 	}
 
 
 	template <class T>
-	void println(vector <T> v, int n) {
-		print(v, n);
-		println();
+	void prn(vector <T> v, int n) {
+		pr(v, n);
+		prn();
 	}
 
 	template <class T>
-	void println(vector <T> v) {
-		print(v, v.size());
-		println();
+	void prn(vector <T> v) {
+		pr(v, v.size());
+		prn();
 	}
 
 
 	template <class T>
-	void print(set <T> v, int n) {
+	void pr(set <T> v, int n) {
 		auto e = begin(v);
 		for (int i = 0; i < n; ++i) {
 			if (i != 0) {
-				print(' ');
+				pr(' ');
 			}
-			print(*e);
+			pr(*e);
 			++e;
 		}
 	}
 
 	template <class T>
-	void print(set <T> v) {
-		print(v, v.size());
+	void pr(set <T> v) {
+		pr(v, v.size());
 	}
 
 
 	template <class T>
-	void println(set <T> v, int n) {
-		print(v, n);
-		println();
+	void prn(set <T> v, int n) {
+		pr(v, n);
+		prn();
 	}
 
 	template <class T>
-	void println(set <T> v) {
-		print(v, v.size());
-		println();
+	void prn(set <T> v) {
+		pr(v, v.size());
+		prn();
 	}
 
 	template <class T, class U>
-	void print(map <T, U> v, int n) {
+	void pr(map <T, U> v, int n) {
 		auto e = begin(v);
 		for (int i = 0; i < n; ++i) {
 			if (i != 0) {
-				print(' ');
+				pr(' ');
 			}
-			print(e -> first);
-			print(':');
-			print(e.second);
+			pr(e -> first);
+			pr(':');
+			pr(e.second);
 			++e;
 		}
 	}
 
 	template <class T, class U>
-	void print(map <T, U> v) {
-		print(v, v.size());
+	void pr(map <T, U> v) {
+		pr(v, v.size());
 	}
 
 
 	template <class T, class U>
-	void println(map <T, U> v, int n) {
-		print(v, n);
-		println();
+	void prn(map <T, U> v, int n) {
+		pr(v, n);
+		prn();
 	}
 
 	template <class T, class U>
-	void println(map <T, U> v) {
-		print(v, v.size());
-		println();
+	void prn(map <T, U> v) {
+		pr(v, v.size());
+		prn();
 	}
 
 	template <class T>
-	void print(vector <T> *a, int n) {
+	void pr(vector <T> *a, int n) {
 		for (int i = 0; i < n; ++i) {
-			println(a[i]);
+			prn(a[i]);
 		}
 	}
 
 	template <class T>
-	void println(vector <T> *a, int n) {
-		print(a, n);
-		println();
+	void prn(vector <T> *a, int n) {
+		pr(a, n);
+		prn();
 	}
 
 	template <class T>
-	void print(T *a, int n) {
+	void pr(T *a, int n) {
 		for (int i = 0; i < n; ++i) {
 			if (i != 0) {
-				print(' ');
+				pr(' ');
 			}
-			print(a[i]);
+			pr(a[i]);
 		}
 	}
 
 	template <class T>
-	void println(T *a, int n) {
-		print(a, n);
-		println();
+	void prn(T *a, int n) {
+		pr(a, n);
+		prn();
 	}
 
 };
