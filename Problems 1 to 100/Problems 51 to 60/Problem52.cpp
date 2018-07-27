@@ -55,7 +55,7 @@ namespace IntegerUtils {
 using IntegerUtils::isPermutation;
 
 
-struct Problem51 {
+struct Problem52 {
 
 	int i, j;
 
