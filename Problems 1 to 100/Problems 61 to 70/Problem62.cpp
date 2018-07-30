@@ -131,3 +131,5 @@ int main() {
     Answer: 127035954683
  Time taken:   3.77222s
 ************************/
+
+// Better way is to use map with sorted digits of cube as key, and count 5 occurrences
