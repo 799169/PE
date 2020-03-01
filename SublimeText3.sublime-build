@@ -1,0 +1,34 @@
+{
+
+	"shell_cmd": "g++ -O2 -std=c++14 -DLOCAL_DEFINE=true \"${file}\" -o \"${file_path}\\\\${file_base_name}\"",
+
+	"file_regex": "^(..[^:]):([0-9]+):?([0-9]+)?:? (.)$",
+
+	"working_dir": "${file_path}",
+
+	"selector": "source.c, source.c++",
+
+	"variants": [
+
+		{
+			"name": "BuildAndRun",
+
+			"shell_cmd": "g++ -O2 -std=c++14 -DLOCAL_DEFINE=true \"${file}\" -o \"${file_path}\\\\${file_base_name}\" && \"${file_path}\\\\${file_base_name}\" < input.txt"
+		},
+
+		{
+			"name": "BuildOnly",
+
+			"shell_cmd": "g++ -O2 -std=c++14 -DLOCAL_DEFINE=true \"${file}\" -o \"${file_path}\\\\${file_base_name}\""
+		},
+
+		{
+		
+			"name": "RunOnly",
+		
+			"shell_cmd": "\"${file_path}\\\\${file_base_name}\" < input.txt" 
+		}
+ 	]
+ 
+ }
+
