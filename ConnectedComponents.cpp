@@ -1,30 +1,3 @@
-#include <algorithm>
-#include <chrono>
-#include <cmath>
-#include <cassert>
-#include <cstdlib>
-#include <cstring>
-#include <fstream>
-#include <functional>
-#include <iostream>
-#include <iomanip>
-#include <iterator>
-#include <map>
-#include <set>
-#include <sstream>
-#include <string>
-#include <tuple>
-#include <vector>
-
-
-#ifdef LOCAL
-	#include "DebugUtils.h"
-#endif
-
-using namespace std;
-using namespace chrono;
-
-
 
 struct UnionFind {
 
