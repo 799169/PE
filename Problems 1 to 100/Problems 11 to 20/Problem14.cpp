@@ -1,21 +1,4 @@
-#include <algorithm>
-#include <chrono>
-#include <cmath>
-#include <cassert>
-#include <cstdlib>
-#include <fstream>
-#include <functional>
-#include <iostream>
-#include <iomanip>
-#include <iterator>
-#include <map>
-#include <sstream>
-#include <string>
-#include <tuple>
-
-
-using namespace std;
-using namespace chrono;
+/*can use short or char instead of int to hold chain length to save space*/
 
 
 struct Problem14 {
