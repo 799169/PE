@@ -26,6 +26,7 @@ bool is1to9Pandigital(int n) {
 	}
 	return g == 9;
 }
+	
 
 bool is0to9Pandigital(Long n) {
 	Assert(n >= 0);
