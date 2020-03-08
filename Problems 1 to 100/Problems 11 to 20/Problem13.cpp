@@ -12,6 +12,13 @@
 using namespace std;
 using namespace chrono;
 
+/*
+split 50 digits into first 13 and last 37
+add only first 13 digits
+last 37 won't affect answer.
+answer will fit in long long
+*/
+
 
 struct Problem13 {
 
