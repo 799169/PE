@@ -59,7 +59,7 @@ void solve() {
 			int p = primes[i];
 			if (p > m) {
 				if (n > 1) {
-					curr *= (p - 1.0L) / p;
+					curr *= (p - 1.0L) / p; // should be n - 1 / n; replace p |---> n ?
 				}
 				break;
 			}
