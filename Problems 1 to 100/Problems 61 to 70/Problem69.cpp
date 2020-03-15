@@ -1,7 +1,7 @@
 #include "DebugUtils.cpp"
 
 
-const int MAXN = 1e6;
+const int MAXN = 1e4;
 const int SQRTMAXN = sqrt(MAXN);
 const int MAXS = MAXN / 3;	// number of candidates to be checked; all are of the form 6k + 1 or 6k - 1
 const int MAXP = MAXN / 10;	// max number of primes expected <= MAXN
@@ -30,43 +30,19 @@ inline int getIndex(int n) {
 
 // all primes <= MAXN
 void generatePrimes() {
-	// fill(sieve, sieve + MAXS, true);
-	// fill_n(sieve, MAXS, true);
 	sieve.set();
 	for (int i = 0; i < MAXS; ++i) {
-		// if i odd ,  j == 1 (mod 6),  j * j == 1 (mod 6),  j * j + 4 * j == 5 (mod 6)
-		// if i even,  j == 5 (mod 6),  j * j == 1 (mod 6),  j * j + 2 * j == 5 (mod 6)
-		// tr(i, getNumber(i), sieve[i])
-		if (sieve[i]) {
-			int j = getNumber(i);
-			if (j > SQRTMAXN) {
-				break;
-			}
-			for (int k = j * j; k <= MAXN; k += 6 * j) {
-				sieve[(k - 4) / 3] = false;
-			}
-			for (int k = j * j + 2 * j * ((i & 1) + 1); k <= MAXN; k += 6 * j) {
-				sieve[(k - 5) / 3] = false;
-			}
+		if (int j = getNumber(i); sieve[i]) {
+			if (j > SQRTMAXN) break;
+			for (int k = j * j; k <= MAXN; k += 6 * j) sieve[(k - 4) / 3] = false;
+			for (int k = j * j + 2 * j * ((i & 1) + 1); k <= MAXN; k += 6 * j) sieve[(k - 5) / 3] = false;
 		}
 	}
-	for (int i = 0; i < MAXS; ++i) {
-		if (sieve[i]) {
-			primes[numOfPrimes] = getNumber(i);
-			++numOfPrimes;
-		}
-	}
-	while (primes[numOfPrimes - 1] > MAXN) {
-		--numOfPrimes;
-	}
+	for (int i = 0; i < MAXS; ++i)
+		if (sieve[i]) primes[numOfPrimes++] = getNumber(i);
 }
 
 
-
-const int MAXF = 8;	// max number of distinct prime factors we expect the number to have
-// 8 is enough for integers upto 9e6
-int primeFactors[MAXF];
-int powers[MAXF], numOfPrimeFactors;
 
 const int N = 1e6;
 
@@ -75,7 +51,7 @@ void solve() {
 	generatePrimes();
 	LD best = 3, curr;
 	int ans = 6, n, m;
-	for (int nn = 1; nn <= 1e6; ++nn) {
+	for (int nn = 1; nn <= N; ++nn) {
 		n = nn;
 		m = sqrt(n) + 1;
 		curr = 1;
@@ -104,28 +80,7 @@ void solve() {
 	return;
 }
 
-int main() {
-	#ifdef LOCAL_DEFINE
-		freopen("input.txt", "r", stdin);
-		freopen("output.txt", "w+", stdout);
-	#else
-		ios_base::sync_with_stdio(false);
-		cin.tie(nullptr);
-		cout.tie(nullptr);
-	#endif
-	auto t1 = chrono::high_resolution_clock::now();
-	solve();
-	auto t2 = chrono::high_resolution_clock::now();
-	chrono::duration<double> t = t2 - t1;
-	#ifdef LOCAL_DEFINE
-		cout << "\nTime taken: " << fixed;
-		cout << setprecision(5) << t.count() << "s\n\n";
-	#endif
-	return 0;
-}
 
+ans=510510 
 
-// ans=510510 
-
-// Time taken: 0.53147s
-
+Time taken: 0.53138s
