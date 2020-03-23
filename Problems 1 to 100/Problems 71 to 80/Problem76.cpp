@@ -13,27 +13,17 @@ void solve() {
 		dp[i][1] = 1;
 	}
 	for (int i = 2; i <= N; ++i) {
-		for (int j = 2; j <= N; ++j) {
+		for (int j = 2; j <= i; ++j) {
 			dp[i][j] = dp[i][j - 1];
-			if (j == i) {
-				++dp[i][j];
-			}
-			if (j >= i) {
-				continue;
-			}
-			int k = 1;
-			while (i - k * j >= 2) {
-				dp[i][j] += dp[i - k * j][j - 1];
-				++k;
+			int k;
+			for (k = 1; i - k * j >= 2; ++k) {
+				dp[i][j] += dp[i - k * j][min(i - k * j, j - 1)];
 			}
 			if (i - k * j >= 0) {
-				// tr(i, j, k);
 				++dp[i][j];
 			}
 		}
-	}
-	for (int i = 2; i < 6; ++i) {
-		prl(i, ts(dp[i], 1, 5));
+		dp[i][i] = dp[i][i - 1] + 1;
 	}
 	tr(dp[N][N] - 1);
 	return;
