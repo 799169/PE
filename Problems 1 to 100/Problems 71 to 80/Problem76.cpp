@@ -32,7 +32,7 @@ void solve() {
 
 
 /*
-Another good solution from the forum:
+Other good solutions from the forum:
  int[][] a = new int[n+1][n+1];
         int i, j, k;
         for (i = 0; i < a.length; i++) {
@@ -47,4 +47,20 @@ Another good solution from the forum:
             }
         }
         answer = a[i][i-1];
+
+///////////////
+
+public static void main(String args[])
+{
+		long i, j;
+		long[] way = new long [101];
+
+		way[0] = 1;
+		for(i = 99; i >= 1; i--)
+			for(j = i; j <= 100; j++)
+				way[j] += way[j - i];
+
+		System.out.println(way[100]);
+}
+
 */
