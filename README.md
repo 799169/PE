@@ -53,7 +53,7 @@ Add C:/gmp
 
 g++ "-IC:\gmp\include" -O0 -g3 -Wall -c -fmessage-length=0 -lgmp -lgmpxx -o main.o "..\main.cpp" g++ "-LC:\gmp\lib" -o GMPDebug.exe main.o -lgmp -lgmpxx
 
-
+Compile:g++ -o gmp_pow_test gmp_pow_test.cpp -lgmp
 
 -------
 g++ prog.cpp -lgmpxx -lgmp -o prog
