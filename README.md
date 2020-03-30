@@ -39,9 +39,12 @@ Then type "make install"
 
 Go to CodeBlocks > Settings > Compiler > Linker Settings
 
-Add C:/gmp/.libs/libgmp.a
 
 Add C:/gmp/.libs/libgmpxx.a
+
+Add C:/gmp/.libs/libgmp.a
+
+(libgmpxx must come before libgmp)
 
 Go to CodeBlocks > Settings > Compiler > Search Directories
 
