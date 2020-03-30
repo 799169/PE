@@ -29,13 +29,19 @@ Then open MSYS and do:
 
 cd C:\gmp
 Then type "./configure --enable-cxx", without the quotes into msys terminal
+
 Then type "make"
+
 Then type "make check"
+
 Then type "make install"
+
 
 Go to CodeBlocks > Settings > Compiler > Linker Settings
 
 Add C:/gmp/.libs/libgmp.a
+
+Add C:/gmp/.libs/libgmpxx.a
 
 Go to CodeBlocks > Settings > Compiler > Search Directories
 
