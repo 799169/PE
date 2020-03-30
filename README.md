@@ -13,6 +13,40 @@ https://cygwin.com/install.html
       cd c:\sources\hello
 
 
+Install MSYS 1.0.11 from http://www.mingw.org/wiki/MSYS
+(under heading Previous MSYS versions (up to 1.0.11))
+
+Install to C:\msys
+
+Go to https://gmplib.org/ > Downloads > gmp-6.2.0.tar.xz
+
+Extract to C:\gmp
+Make sure there is file C:\gmp\configure
+
+Copy paste all from C:\gmp\gmp-x-y-z to C:\gmp
+
+Then open MSYS and do:
+
+cd C:\gmp
+Then type "./configure --enable-cxx", without the quotes into msys terminal
+Then type "make"
+Then type "make check"
+Then type "make install"
+
+Go to CodeBlocks > Settings > Compiler > Linker Settings
+
+Add C:/gmp/.libs/libgmp.a
+
+Go to CodeBlocks > Settings > Compiler > Search Directories
+
+Add C:/gmp
+
+
+
+
+
+
+-------
 g++ prog.cpp -lgmpxx -lgmp -o prog
 
 
