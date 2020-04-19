@@ -81,3 +81,60 @@ with open("input2.txt", 'r') as inputFile:
 	with open("input.txt", "w") as inp:
 		inp.write(str(num_cases) + "\n" + inputFile.read())
 
+
+		
+#############################################################################################
+
+from urllib.request import urlopen
+from html.parser import HTMLParser
+
+url, num_cases = """
+
+https://codeforces.com/problemset/problem/1326/G
+
+
+""", 0
+
+
+with open("input2.txt", 'wb') as inputFile, open("output2.txt", 'wb') as outputFile:
+		class CodeforcesProblemParser(HTMLParser):
+			def __init__(self):
+				HTMLParser.__init__(self)
+				self.num_tests, self.testcase = 0, False
+				self.start_copy, self.useInputFile, self.useOutputFile = False, False, False
+
+			def handle_starttag(self, tag, attrs):
+				global num_cases
+				if tag == 'div':
+					if attrs == [('class', 'input')]: self.num_tests += 1; num_cases += 1; self.testcase, self.useInputFile, self.useOutputFile = True, True, False
+					elif attrs == [('class', 'output')]: self.testcase, self.useInputFile, self.useOutputFile = True, False, True
+				elif tag == 'pre': 
+					if self.testcase: self.start_copy = True
+
+			def handle_endtag(self, tag):
+				if tag == 'br' and self.start_copy:
+						if self.useInputFile: inputFile.write('\n'.encode('utf-8'))
+						else: outputFile.write('\n'.encode('utf-8'))
+						self.end_line = True
+				if tag == 'pre' and self.start_copy:
+						if not self.end_line:
+							if self.useInputFile: inputFile.write('\n'.encode('utf-8'))
+							else: outputFile.write('\n'.encode('utf-8'))
+						self.testcase, self.useInputFile, self.useOutputFile, self.start_copy = False, False, False, False
+
+			def handle_entityref(self, name):
+				if self.start_copy: inputFile.write(self.unescape(('&%s;' % name)).encode('utf-8'))
+
+			def handle_data(self, data):
+				if self.start_copy:
+					if self.useInputFile: inputFile.write(data.strip('\n').encode('utf-8'))
+					else: outputFile.write(data.strip('\n').encode('utf-8'))
+					self.end_line = False
+
+		html = urlopen(url).read(); CodeforcesProblemParser().feed(html.decode('utf-8'))
+
+
+with open("input2.txt", 'r') as inputFile:
+	with open("input.txt", "w") as inp: inp.write(str(num_cases) + "\n" + inputFile.read())
+
+
