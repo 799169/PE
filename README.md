@@ -25,7 +25,7 @@ Make sure there is file C:\gmp\configure
 
 Copy paste all from C:\gmp\gmp-x-y-z to C:\gmp
 
-Then open MSYS and do:
+Then open MSYS (right click and open as administrator) and do:
 
 cd C:\gmp
 Then type "./configure --enable-cxx", without the quotes into msys terminal
